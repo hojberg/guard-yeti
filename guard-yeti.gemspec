@@ -8,9 +8,9 @@ Gem::Specification.new do |s|
   s.version     = Guard::Yeti::VERSION
   s.authors     = ["Simon Højberg"]
   s.email       = ["r.hackr@gmail.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "https://github.com/hojberg/guard-yeti"
+  s.summary     = %q{Guard::Yeti automatically run's your YUI tests via Yeti}
+  s.description = %q{Guard watches files. Use guard-yeti to run your YUI unit test via Yeti, when your implementation files change}
 
   s.rubyforge_project = "guard-yeti"
 
@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "guard"
+  s.add_dependency "rake"
 
   s.add_development_dependency "minitest"
   s.add_development_dependency "guard-minitest"
