@@ -35,8 +35,8 @@ Please read [Guard doc](https://github.com/guard/guard#readme) for more info abo
 
 ``` ruby
 guard 'yeti' do
-  watch(%r{^public/javascripts/.*\.js}) { |m| "public/javascripts/test/#{m[1]}_test.html" }
-  watch(%r{^public/javascripts/test/.*\.html}) 
+  watch(%r{^public/javascripts/(.*).js}) { |m| "public/javascripts/test/#{m[1]}_test.html" }
+  watch(%r{^public/javascripts/test/(.*).html}) 
 end
 ```
 ## Author
