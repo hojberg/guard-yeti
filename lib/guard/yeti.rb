@@ -9,6 +9,7 @@ module Guard
     def initialize(watches = [], options = {})
       super
       UI.info "init"
+      @latest_output = "sucks"
     end
 
     def start
@@ -20,10 +21,12 @@ module Guard
 
       UI.info("yeti #{paths[0]} --solo=1", :reset => true)
 
-      @latest_output = %x[yeti #{paths[0]} --solo=1]
-      @latest_result=$?.success?
+      output = %x[yeti #{paths[0]} --solo=1]
+      result = $?.success?
 
-      Notifier.notify(@latest_result, @latest_result ? "Passed" : "Failed")
+      Notifier.notify(result, result ? "Passed" : "Failed")
+
+      [result, output]
     end
 
   end
