@@ -1,7 +1,10 @@
-require 'guard/yeti/notifier'
+require 'guard'
+require 'guard/guard'
 
 module Guard
   class Yeti < Guard
+
+    autoload :Notifier, 'guard/yeti/notifier'
 
     def initialize(watches = [], options = {})
       super
@@ -20,7 +23,8 @@ module Guard
       @latest_output = %x[yeti #{paths[0]} --solo=1]
       @latest_result=$?.success?
 
-      ::Guard::YetiNotifier.notify(@latest_result, @latest_result ? "Passed" : "Failed")
+      Notifier.notify(@latest_result, @latest_result ? "Passed" : "Failed")
     end
+
   end
 end
