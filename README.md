@@ -20,6 +20,13 @@ Add guard definition to your Guardfile with:
 
 Please read the [Guard usage documentation](https://github.com/guard/guard#readme).
 
+start the yeti server and open the posted url in a browser
+
+
+```
+yeti --server
+```
+
 ## Guardfile
 
 Please read [Guard doc](https://github.com/guard/guard#readme) for more info about the Guardfile DSL.
