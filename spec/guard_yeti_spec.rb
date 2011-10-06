@@ -5,14 +5,12 @@ require File.dirname(__FILE__) + '/spec_helper'
 describe "guard-yeti" do
 
   before do
-
     # mock of the kernel system call
     module Kernel
       def `(cmd)
         cmd
       end
     end
-
   end
 
   it "runs yeti on update" do
