@@ -20,7 +20,7 @@ Add guard definition to your Guardfile with:
 
 Please read the [Guard usage documentation](https://github.com/guard/guard#readme).
 
-start the yeti server and open the posted url in a browser
+Start the yeti server and open http://localhost:8000 in a browser
 
 
 ```
