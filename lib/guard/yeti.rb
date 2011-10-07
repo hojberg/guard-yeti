@@ -5,9 +5,15 @@ module Guard
   class Yeti < Guard
 
     autoload :Notifier, 'guard/yeti/notifier'
+    autoload :Dependency, 'guard/yeti/dependency'
 
     def initialize(watches = [], options = {})
       super
+
+      ['yeti', 'node'].each do |command|
+        Dependency.verify_or_raise(command)
+      end
+
       UI.info "Guard::Yeti has started!"
       @latest_output = "sucks"
     end
