@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    guard-yeti (0.0.1)
+    guard-yeti (0.0.2)
       guard
       rake
 
