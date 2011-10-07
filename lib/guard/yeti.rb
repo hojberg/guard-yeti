@@ -8,7 +8,7 @@ module Guard
 
     def initialize(watches = [], options = {})
       super
-      UI.info "init"
+      UI.info "Guard::Yeti has started!"
       @latest_output = "sucks"
     end
 
