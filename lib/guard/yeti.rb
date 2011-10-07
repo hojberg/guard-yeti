@@ -17,7 +17,7 @@ module Guard
     end
 
     def run_on_change(paths)
-      return false if paths.empty?
+      return false if paths.empty? || !File.exist?(paths[0])
 
       UI.info("yeti #{paths[0]} --solo=1", :reset => true)
 

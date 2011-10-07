@@ -11,12 +11,18 @@ describe "guard-yeti" do
         cmd
       end
     end
+
+    @yeti = Guard::Yeti.new
   end
 
-  it "runs yeti on update" do
-    yeti = Guard::Yeti.new
-    yeti.run_on_change(["yui_test_file.html"]).
-      must_equal [true, "yeti yui_test_file.html --solo=1"]
+  it "should run yeti on update" do
+    @yeti.run_on_change(["fixtures/yui_test_file.html"]).
+      must_equal [true, "yeti fixtures/yui_test_file.html --solo=1"]
+  end
+
+  it "should not run yeti if file doesn't exist" do
+    @yeti.run_on_change(["fixtures/bogus_yui_test_file.html"]).
+      must_equal false
   end
 
 end
