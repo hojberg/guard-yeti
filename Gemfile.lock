@@ -1,19 +1,23 @@
 PATH
   remote: .
   specs:
-    guard-yeti (0.0.2)
+    guard-yeti (0.0.3)
+      ffi (~> 1.0.9)
       guard
       rake
+      spoon (~> 0.0.1)
 
 GEM
   remote: http://rubygems.org/
   specs:
+    ffi (1.0.10)
     guard (0.7.0)
       thor (~> 0.14.6)
     guard-minitest (0.4.0)
       guard (~> 0.4)
     minitest (2.6.0)
-    rake (0.9.2)
+    rake (0.9.2.2)
+    spoon (0.0.1)
     thor (0.14.6)
 
 PLATFORMS

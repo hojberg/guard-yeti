@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "guard"
   s.add_dependency "rake"
+  s.add_dependency('spoon', '~> 0.0.1')
+  s.add_dependency('ffi', '~> 1.0.9')
 
   s.add_development_dependency "minitest"
   s.add_development_dependency "guard-minitest"

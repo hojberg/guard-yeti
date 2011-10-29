@@ -1,10 +1,11 @@
 require 'guard'
 require 'guard/guard'
+require 'spoon'
 
 module Guard
   class Yeti < Guard
 
-    autoload :Notifier, 'guard/yeti/notifier'
+    autoload :Notifier,   'guard/yeti/notifier'
     autoload :Dependency, 'guard/yeti/dependency'
 
     def initialize(watches = [], options = {})
@@ -15,11 +16,35 @@ module Guard
       end
 
       UI.info "Guard::Yeti has started!"
-      @latest_output = "sucks"
     end
 
     def start
       UI.info "Guard::Yeti is running!"
+      spawn_server 
+    end
+
+    def spawn_server
+      @pid = Spoon.spawnp("yeti --server")
+    end
+    
+    def stop
+      UI.info 'Guard::Yeti is stopping..' 
+      kill_server
+      true
+    end
+
+    def kill_server
+      if server_running? 
+        Process.kill("TERM", @pid)
+        Process.waitpid(@pid) rescue Errno::ESRCH
+      end
+      @pid = nil
+    end
+    
+    def server_running?
+      @pid ? Process.kill(0, @pid) : false
+    rescue Errno::ESRCH => e
+      false
     end
 
     def run_on_change(paths)

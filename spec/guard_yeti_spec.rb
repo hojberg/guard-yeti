@@ -15,6 +15,17 @@ describe "guard-yeti" do
     @yeti = Guard::Yeti.new
   end
 
+  after do
+    @yeti.stop if @yeti.server_running?
+  end
+
+  it "should start and stop yeti server" do
+    @yeti.spawn_server
+    @yeti.server_running?.must_equal true
+    @yeti.kill_server
+    @yeti.server_running?.must_equal false
+  end
+
   it "should run yeti on update" do
     @yeti.run_on_change(["spec/fixtures/yui_test_file.html"]).
       must_equal [true, "yeti spec/fixtures/yui_test_file.html --solo=1"]
